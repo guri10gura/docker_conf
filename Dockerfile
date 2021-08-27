@@ -1,16 +1,16 @@
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 
-# LABEL version=1.0
+LABEL version=1.0
 
-# RUN apt-get update \
-#     && apt-get install -y \
-#     build-essential \
-#     git \
-#     python3 \
-#     phthon3-pip \
-#     vim \
-#     tmux \
-#     openssh-server
-# 
-# RUN pip3 install cmake --upgrade 
+RUN apt-get update \
+    && apt-get install -y \
+    build-essential \
+    subversion \
+    git \
+    vim \
+    python3 \
+    python3-pip \
+    tmux 
+
+RUN pip3 install cmake --upgrade
 
