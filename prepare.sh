@@ -1,9 +1,8 @@
 #!/bin/bash
 
-docker build -t ub-img .
+docker build -t yamaimg .
 
-docker run -td --name ub-env ub-img
+docker run -td --name yamaenv yamaimg
 
 docker ps -a
-
 
