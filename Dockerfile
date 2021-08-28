@@ -6,11 +6,12 @@ RUN apt-get update \
     && apt-get install -y \
     build-essential \
     git \
+    neovim \
     python3 \
+    python3-neovim \
     python3-pip \
     subversion \
     tmux \
-    vim \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -20,5 +21,8 @@ ARG DUSER=user
 ARG DPASS=${DUSER}
 RUN useradd -U -m --groups sudo ${DUSER} \
     && echo ${DUSER}:${DPASS} | chpasswd
+
+COPY tool home/${DUSER}/tool
+
 USER ${DUSER}
 
