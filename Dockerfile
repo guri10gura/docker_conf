@@ -16,11 +16,9 @@ RUN apt-get update \
 
 RUN pip3 install cmake --upgrade
 
-ARG DOCKER_USER=user
-ARG DOCKER_GROUP=user
-ARG DOCKER_PASS=user
-RUN groupadd -r user && useradd -m -g ${DOCKER_GROUP} --groups sudo ${DOCKER_USER} \
-    && echo ${DOCKER_USER}:${DOCKER_PASS} | chpasswd
-USER ${DOCKER_USER}
-
+ARG DUSER=user
+ARG DPASS=${DUSER}
+RUN useradd -U -m --groups sudo ${DUSER} \
+    && echo ${DUSER}:${DPASS} | chpasswd
+USER ${DUSER}
 

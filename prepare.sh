@@ -1,11 +1,12 @@
 #!/bin/bash
+sudo --preserve-env=USER docker build -t yamaimg --build-arg DUSER="${USER}_" .
 
-docker build -t yamaimg .
-
-docker run -td \
-    --name yamaenv  \
-    -v ${HOME}/work:/home/user/work \
+sudo docker run -td \
+    --name yamaenv \
+    -u $UID:`id -g` \
+    -v $HOME:$HOME \
+    --workdir=`pwd` \
     yamaimg
 
-docker ps -a
+sudo docker ps -a
 
