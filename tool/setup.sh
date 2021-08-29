@@ -4,5 +4,8 @@ DIR=$(cd $(dirname $0); pwd)
 
 DATE=`date '+%Y%m%d-%H%M%S'`
 
-touch ${DIR}/${DATE}.txt
+pushd ${DIR}
+  curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
+  bash ./installer.sh ~/.cache/dein
+popd
 
