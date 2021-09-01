@@ -1,6 +1,6 @@
 
 
-rmyamaenv.sh
+rmcontainer.sh
 *.bak
 installer.sh
 

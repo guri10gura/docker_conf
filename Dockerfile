@@ -34,7 +34,8 @@ RUN useradd -U -m --groups sudo ${DUSER} \
 
 COPY tool /home/${DUSER}/tool
 
-RUN /home/${DUSER}/tool/setup.sh
+RUN /home/${DUSER}/tool/startup.sh
+RUN rm /home/${DUSER}/tool/startup.sh
 RUN chown -Rf ${DUSER}:${DUSER} /home/${DUSER}/tool
 RUN chmod -Rf +x /home/${DUSER}/tool
 
