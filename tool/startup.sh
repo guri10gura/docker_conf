@@ -8,7 +8,5 @@ pushd ${DIR}
   cd ${HOME_DIR}
   rm -r ./tool/dotfiles/.git
   cp -r ./tool/dotfiles/. .
-  rm -r ./tool/dotfiles
-  ls -al ${HOME_DIR}
 popd
 

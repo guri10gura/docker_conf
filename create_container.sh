@@ -4,7 +4,6 @@ IMG_NAME="ubuntu_img"
 CONTAINER="ubuntu_container" 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-rm ${SCRIPT_DIR}/tool/installer.sh
 sudo --preserve-env=USER docker build -t ${IMG_NAME} --build-arg DUSER="${USER}_" .
 
 sudo docker run -td \
