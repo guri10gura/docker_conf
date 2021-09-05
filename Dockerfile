@@ -32,10 +32,12 @@ ARG DPASS=${DUSER}
 RUN useradd -U -m --groups sudo ${DUSER} \
     && echo ${DUSER}:${DPASS} | chpasswd
 
-COPY tool /home/${DUSER}/tool
+COPY data/tool /home/${DUSER}/tool
 
 RUN /home/${DUSER}/tool/startup.sh
 RUN rm -r /home/${DUSER}/tool
+
+COPY data/.tmux.conf /home/${DUSER}/.tmux.conf
 
 USER ${DUSER}
 
