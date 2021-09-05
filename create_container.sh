@@ -4,9 +4,9 @@ IMG_NAME="ubuntu_img"
 CONTAINER="ubuntu_container" 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-sudo --preserve-env=USER docker build -t ${IMG_NAME} --build-arg DUSER="${USER}_" .
+docker build -t ${IMG_NAME} --build-arg DUSER="${USER}_" .
 
-sudo docker run -td \
+docker run -td \
     --name ${CONTAINER} \
     -u ${UID}:`id -g` \
     -v ${HOME}:${HOME} \
@@ -14,5 +14,5 @@ sudo docker run -td \
     --workdir=`pwd` \
     ${IMG_NAME} 
 
-sudo docker ps -a
+docker ps -a
 

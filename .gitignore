@@ -3,4 +3,6 @@
 rmcontainer.sh
 *.bak
 installer.sh
+dotfiles
+dotfiles/*
 

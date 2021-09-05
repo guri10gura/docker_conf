@@ -8,6 +8,7 @@ PrintHelp()
     echo "      -s start"
     echo "      -e exec"
     echo "      -c commit"
+    echo "      -g add group"
 }
 
 if [ $# -eq 0 ];then
@@ -15,13 +16,16 @@ if [ $# -eq 0 ];then
     exit 0
 fi
 
+GROUP=0
 START=0
 EXEC=0
 COMMIT=0
 
-while getopts sec OPT
+while getopts secg OPT
   do
   case $OPT in
+    g)  GROUP=1
+    ;;
     s)  START=1
     ;;
     e)  EXEC=1
@@ -33,6 +37,10 @@ while getopts sec OPT
   esac
 done
 
+if [ ${GROUP} -eq 1 ];then
+  sudo gpasswd -a ${USER} docker
+  getent group docker
+fi
 if [ ${START} -eq 1 ];then
   docker start ubuntu_container
 fi
