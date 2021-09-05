@@ -5,6 +5,7 @@ HOME_DIR=${DIR}/..
 
 pushd ${DIR}
   git clone https://github.com/guri10gura/dotfiles
+
   cd ${HOME_DIR}
   rm -r ./tool/dotfiles/.git
   cp -r ./tool/dotfiles/. .
