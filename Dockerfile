@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 LABEL version=1.0
 
 ENV DEBIAN_FRONTEND noninteractive
+ENV LANG en_US.UTF-8
 
 RUN apt-get update \
     && apt-get install -y \
