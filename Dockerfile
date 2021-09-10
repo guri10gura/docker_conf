@@ -11,6 +11,7 @@ RUN apt-get update \
     build-essential \
     curl \
     git \
+    global \
     python3 \
     python3-neovim \
     python3-pip \
